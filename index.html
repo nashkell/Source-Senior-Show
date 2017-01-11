@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<title>UArts 2014 Senior Graphic Design Class Quantified</title>
+	<link href="css/bootstrap.min.311.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="css/animate.css" media="all" rel="stylesheet" type="text/css" />
+	<link href='http://fonts.googleapis.com/css?family=Raleway:900,800,700,600' rel='stylesheet' type='text/css'>	
+	<style type="text/css">
+		html
+		{
+			/* overflow: hidden; */
+			_overflow: auto;
+		}
+
+		html, body { height: 100%; }
+		#viewport { overflow: auto; }
+
+		body
+		{
+			margin: 0;
+			padding: 0;
+			font-family: Raleway, Arial !important;
+		}
+
+		#viewport
+		{
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
+		.carousel, .carousel-inner, .item { height: 100%; }
+		
+		.carousel-caption {
+			left: 10%;
+			right: 9%;
+			text-align: left;
+			top:calc(20% - 0px);
+			padding-top:0px;
+		}
+		
+		.student {
+			top:calc(14% - 0px);
+		}
+		
+		.age {
+			top:calc(25% - 0px);
+		}
+		
+		.commute, .process {
+			top: calc(18% - 0px);
+		}
+		
+		.coffee-early {
+			top: calc(10% - 0px);
+		}
+		
+		.music {
+			top: calc(5% - 0px);
+		}
+		
+		
+		h1 {
+			font-size: calc(280% - 0px);
+			font-weight:700;
+			color: rgb(15,0,191) !important;
+			text-shadow: none;
+		}
+		
+		.topData {
+			left: 21%;
+			right: 21%;
+			top: 20px;
+			padding-bottom: 40px;
+			z-index: 1;
+		}
+		
+		.item > img
+		{
+			max-width: none !important;
+			position: absolute;
+			z-index: -1;
+			/* height: 100% !important; */
+		}
+		.item {
+			background-size: cover;
+			background-position: center center;
+			overflow: hidden;
+
+		}
+		
+		.left-buffer-small {
+			margin-left: 20px;
+		}
+		
+		.left-buffer-big {
+			margin-left: 45px;
+		}
+		
+		.top-buffer-small {
+			margin-top: 20px;
+		}
+		
+		.top-buffer-big {
+			margin-top:45px;
+		}
+		
+		.big-spacing {
+			margin-top: 200px;
+		}
+		
+		.medium-spacing {
+			margin-top: 125px;
+		}
+		
+		.small-spacing {
+			margin-top: 75px;
+		}
+		
+		.bottom-spacing {
+			margin-bottom: 125px;
+		}
+		
+		h3
+		{
+			position: absolute;
+			margin: 0;
+			width: 100%;
+			line-height: 1;
+			text-align: center;
+			color: black;
+			text-shadow: none;
+		}
+		.col-xs-1, .col-sm-1, .col-md-1, .col-lg-1, .col-xs-2, .col-sm-2, .col-md-2, .col-lg-2, .col-xs-3, .col-sm-3, .col-md-3, .col-lg-3, .col-xs-4, .col-sm-4, .col-md-4, .col-lg-4, .col-xs-5, .col-sm-5, .col-md-5, .col-lg-5, .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6, .col-xs-7, .col-sm-7, .col-md-7, .col-lg-7, .col-xs-8, .col-sm-8, .col-md-8, .col-lg-8, .col-xs-9, .col-sm-9, .col-md-9, .col-lg-9, .col-xs-10, .col-sm-10, .col-md-10, .col-lg-10, .col-xs-11, .col-sm-11, .col-md-11, .col-lg-11, .col-xs-12, .col-sm-12, .col-md-12, .col-lg-12 {
+			padding-left: 0px;
+			padding-right: 10px;
+			padding-bottom: 10px;
+		}
+		
+		.no-pad-col > .col-xs-1, .no-pad-col > .col-sm-1, .no-pad-col > .col-md-1, .no-pad-col > .col-lg-1, .no-pad-col > .col-xs-2, .no-pad-col > .col-sm-2, .no-pad-col > .col-md-2, .no-pad-col > .col-lg-2, .no-pad-col > .col-xs-3, .no-pad-col > .col-sm-3, .no-pad-col > .col-md-3, .no-pad-col > .col-lg-3, .no-pad-col > .col-xs-4, .no-pad-col > .col-sm-4, .no-pad-col > .col-md-4, .no-pad-col > .col-lg-4, .no-pad-col > .col-xs-5, .no-pad-col > .col-sm-5, .no-pad-col > .col-md-5, .no-pad-col > .col-lg-5, .no-pad-col > .row > .col-xs-6, .no-pad-col > .row > .col-sm-6, .no-pad-col > .row > .col-md-6, .no-pad-col > .row > .col-lg-6, .no-pad-col > .col-xs-7, no-pad-col > .col-sm-7, .no-pad-col > .col-md-7, .no-pad-col > .col-lg-7, .no-pad-col > .col-xs-8, .no-pad-col > .col-sm-8, .no-pad-col > .col-md-8, .no-pad-col > .col-lg-8, .no-pad-col > .col-xs-9, .no-pad-col > .col-sm-9, .no-pad-col > .col-md-9, .no-pad-col > .col-lg-9, .no-pad-col > .col-xs-10, .no-pad-col > .col-sm-10, .no-pad-col > .col-md-10, .no-pad-col > .col-lg-10, .no-pad-col > .col-xs-11, .no-pad-col > .col-sm-11, .no-pad-col > .col-md-11, .no-pad-col > .col-lg-11, .no-pad-col > .col-xs-12, .no-pad-col > .col-sm-12, .no-pad-col > .col-md-12, .no-pad-col > .col-lg-12 {
+			padding-left: 0px !important;
+			padding-right: 0px !important;
+			padding-bottom: 0px !important;
+		}
+		
+		.opacity {
+ 		   -webkit-filter: opacity(1);
+		   transition: filter ease-in 0.3s;
+		}
+		
+		h3 {
+			opacity: 0;
+		}
+		
+		#gif {
+		border-radius:100%;
+			background-image: url('img/bigGif_blankWeb.jpg');
+			background-size: cover;
+			background-position: center center;
+			overflow: hidden;
+		}
+		
+		#studentName {
+			background-image: url('img/sourceLogo_web3.jpg');
+			background-size: cover;
+			
+		}
+		
+		#student {
+			font-size: 1.8em;
+			color: rgb(15,0,191);
+			text-shadow:none;
+			text-align: center;
+		}
+		
+		#buttonUp {
+			opacity:0;
+			position: absolute;
+			z-index: 2000;
+			left: calc(95% - 0px);
+			top: calc(90% - 0px);
+		}
+		
+		#buttonDown {
+			position: absolute;
+			z-index: 1000;
+			left: calc(48% - 0px);
+			top: calc(90% - 0px);
+		}
+		
+		.glyphClick{
+			width:	50px;
+			height: 50px;
+			padding-top: 20px;
+		}
+		
+		.glyphicon {
+			font-size: 20px;
+		}
+		
+		.up {
+			-webkit-animation-duration: 2s;
+			-webkit-animation-delay: 2s;
+			-webkit-animation-iteration-count: infinite;
+		}
+		
+		
+</style>
+</head>
+<body>
+<a class="up" href="#carousel-students"><span id="buttonUp"class="glyphClick glyphicon glyphicon-chevron-up"></span></a>
+<div id="viewport">
+<div id="carousel-students" class="carousel slide">
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+	<!-- BEGIN SLIDE -->
+    <div class="item active">
+     
+		<div class="carousel-caption student">
+      		<div class="row">
+     			<div  id="imgBank" class="col-md-9 col-sm-9 col-xs-12">
+     				
+     						<a href="javascript:newPopup('http://www.abbyfrymire.com');"  data-gif="abby" data-name="Abby Frymire"><img id="abby" class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_abby.png" alt="abby"></a>
+     						<a href="javascript:newPopup('http://alexfoley.prosite.com');" data-gif="alex" data-name="Alex Foley"><img id="alex" class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_alex.png" alt="alex"></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('assets/aminneci_work_samples.pdf');" data-gif="angela" data-name="Angela Minneci"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_angela.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('http://www.anthonychristophermarra.com');" data-gif="anthony" data-name="Anthony Marra"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_anthony.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.brandonsax.com');" data-gif="brandon" data-name="Brandon Sax"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_brandon.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.billygharvey.com');" data-gif="billy" data-name="Billy Harvey"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_billy.png" alt=""></a>
+     						<a href="javascript:newPopup('http://brobinsondesign.businesscatalyst.com/');" data-gif="brett" data-name="Brett Robinson"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_brett.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.bryanwillisdesign.com');" data-gif="brian" data-name="Bryan Thompson"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_brian.png" alt=""></a>
+     						<a href="javascript:newPopup('http://blmjrdesign.com');" data-gif="bryant" data-name="Bryant Myers"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_bryant.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('http://www.buddyharrisdesign.com');" data-gif="buddy" data-name="Buddy Harris"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_buddy2.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.carlneubert.com');" data-gif="carl" data-name="Carl Neubert"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_carl.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.dain-kim.squarespace.com');" data-gif="dain" data-name="Dain Kim"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_dain.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.coroflot.com/elevi');" data-gif="elle" data-name="Ell Levi"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_ell.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.ericsheltondesign.com');" data-gif="eric" data-name="Eric Shelton"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_eric.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('http://www.eunsolim.com');" data-gif="eunsol" data-name="Eunsol Lim"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_eunsol.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('http://mattguida.com');" data-gif="guida" data-name="Matthew Guida"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_guida.png" alt=""></a>
+     						<a href="javascript:newPopup('http://henrylee.biz');" data-gif="henry" data-name="Henry Lee"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_henry.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('http://jamesowensdesign.com');" data-gif="james" data-name="James Owens"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_james.png" alt=""></a>
+     						<a href="javascript:newPopup('http://js-kim.com');" data-gif="john" data-name="John Kim"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_john.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.joshpindjak.com');" data-gif="josh" data-name="Josh Pindjak"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_josh.png" alt=""></a>
+     						<a href="javascript:newPopup('https://www.behance.net/kelseyrichman');" data-gif="kelsey" data-name="Kelsey Richman"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_kelsey.png" alt=""></a>
+     						<a href="javascript:newPopup('http://kristaclwatson.squarespace.com');" data-gif="krista" data-name="Krista Watson"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_krista.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.kylecoates.com');" data-gif="kyle" data-name="Kyle Coates"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_kyle.png" alt=""></a>
+     						<a href="javascript:newPopup('http://matthewaubert.com');" data-gif="matt" data-name="Matthew Aubert"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_matt.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('https://www.behance.net/MichaelBurke-design');" data-gif="mike" data-name="Michael Burke"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_mike.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.nijeltaylor.com');" data-gif="nijel" data-name="Nijel Taylor"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_nijel.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('http://nicoletramontana.com');" data-gif="nikki" data-name="Nicole Tramontana"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_nikki.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('https://paige-miller-myws.squarespace.com');" data-gif="paige" data-name="Paige Miller"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_paige.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.behance.net/pilsungkang');" data-gif="pilsung" data-name="Pilsung Kang"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_pilsung.png" alt=""></a>
+     						<a href="javascript:newPopup('https://www.behance.net/samnobes');" data-gif="sam" data-name="Samantha Nobes"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_sam.png" alt=""></a>
+     						<a href="javascript:newPopup('https://taylor-longanecker.squarespace.com/');" data-gif="taylor" data-name="Taylor Longanecker"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_taylor.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     						<a href="javascript:newPopup('http://www.tedczyzewski.net');" data-gif="ted" data-name="Ted Czyzewski"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_ted.png" alt=""></a>
+     						<a href="javascript:newPopup('http://www.tracyloi.com');" data-gif="tracy" data-name="Tracy Loi"><img class="col-lg-1 col-md-1 col-sm-1 col-xs-3" src="img/student_port/student_tracy.png" alt=""></a>
+     						<img class="col-lg-1 col-md-1 col-sm-1 col-xs-3 blank" src="img/student_port/student_blank_gray.png" alt="">
+     					
+     			</div>
+     			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+     				<div id="gif" class="col-md-12 col-sm-12 col-xs-12"> 
+     					
+     						<img class="col-md-12 col-sm-12 col-xs-12" src="img/student_port/student_blank_clear.png" alt="" style="border-radius:100%">
+     							
+     				</div>
+    			</div>
+     		<div class="row">
+     			<div class="col-md-9 col-sm-9 col-xs-12"></div>
+     			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="height:15px;">
+     				<p id="student"></p>
+     			</div>
+     		</div>	  			
+     		</div><!-- CLOSE ROW -->
+     		<div class="row">
+     			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+     			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">  
+     				<div class="col-md-12 col-sm-12 col-xs-12"> 
+     					<div id="studentName" class="col-md-11 col-sm-11 col-xs-11">
+     						<img class="col-md-12 col-sm-12 col-xs-12" src="img/sourceLogo_web3.png" alt="sourceLogo_web">
+     						<h1></h1>
+     					</div>
+     					
+     				</div>
+     			</div>
+     			<div class="col-lg-2 col-md-2 col-sm-2 col-xs-2"></div>
+     		</div>
+     		<a class="down" href="#mapBig"><span id="buttonDown"class="glyphClick glyphicon glyphicon-chevron-down"></span></a>
+		</div>
+    </div>
+    <!-- END SLIDE -->
+  </div>
+</div>
+
+<img id="mapBig" src="img/quantification/map-12-column.jpg" width="100%" alt="quantification">
+<!-- <img src="img/quantification/age_alt_web.jpg" width="100%" alt="quantification"> -->
+<div class="container-fluid container-age big-spacing">
+<div class="row"><!-- HEADER -->
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+	<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">	
+     <h1>We're young</h1>
+     		
+     			<img class="col-lg-6 col-md-6 col-sm-6 col-xs-12" src="img/quantification/age.jpg" alt="quantification">
+     			<img class="col-lg-6 col-md-6 col-sm-6 col-xs-12" src="img/quantification/age2.jpg" alt="quantification">	
+    </div>
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+	</div>
+</div>
+<!-- 
+<div id="carousel-age" class="carousel slide">
+  <!~~ Wrapper for slides ~~>
+  <div class="carousel-inner">
+	<!~~ BEGIN SLIDE ~~>
+    <div class="item active">
+		<div class="carousel-caption age">
+      		<div class="row"><!~~ HEADER ~~>
+     			<h1>We're young</h1>
+     		</div>
+        	<div class="row no-pad-col"><!~~ CONTENT ~~>
+     			<img class="col-lg-6 col-md-6 col-sm-6 col-xs-12" src="img/quantification/age.jpg" alt="quantification">
+     			<img class="col-lg-6 col-md-6 col-sm-6 col-xs-12" src="img/quantification/age2.jpg" alt="quantification">	
+     		</div><!~~ CLOSE ROW ~~>
+		</div>
+
+    </div>
+    <!~~ END SLIDE ~~>
+  </div>
+</div>
+ -->
+
+<div class="container-fluid container-restless big-spacing">
+<div class="row"><!-- HEADER -->
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+	<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+     			<h1>We're restless</h1>
+     		
+        	<div class="row no-pad-col"><!-- CONTENT -->
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/wake-up-time.jpg" alt="quantification">
+     		</div><!-- CLOSE ROW -->
+</div>
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+</div>
+</div>
+<!-- 
+<div id="carousel-restless" class="carousel slide">
+  <!~~ Wrapper for slides ~~>
+  <div class="carousel-inner">
+	<!~~ BEGIN SLIDE ~~>
+    <div class="item active">
+		<div class="carousel-caption age">
+      		<div class="row"><!~~ HEADER ~~>
+     			<h1>We're restless</h1>
+     		</div>
+        	<div class="row no-pad-col"><!~~ CONTENT ~~>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/wake-up-time.jpg" alt="quantification">
+     		</div><!~~ CLOSE ROW ~~>
+		</div>
+
+    </div>
+    <!~~ END SLIDE ~~>
+  </div>
+</div>
+ -->
+
+<div class="container-fluid container-commute big-spacing">
+<div class="row"><!-- HEADER -->
+	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+	<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+    	<h1>We get our asses to the studio</h1>
+        <div class="row no-pad-col"><!-- CONTENT -->
+     		<img class="col-lg-6 col-md-6 col-sm-6 col-xs-12" src="img/quantification/commute-6-column.jpg" alt="quantification">
+     			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+     			<img class="col-lg-5 col-md-5 col-sm-5 col-xs-12" src="img/quantification/commute-5-column.jpg" alt="quantification">
+     		</div><!-- CLOSE ROW -->
+     </div>
+     <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+</div>
+</div>
+<!-- 
+<div id="carousel-commute" class="carousel slide">
+  <!~~ Wrapper for slides ~~>
+  <div class="carousel-inner">
+	<!~~ BEGIN SLIDE ~~>
+    <div class="item active">
+		<div class="carousel-caption commute">
+      		<div class="row"><!~~ HEADER ~~>
+     			<h1>We get our asses to the studio</h1>
+     		</div>
+        	<div class="row no-pad-col"><!~~ CONTENT ~~>
+     			<img class="col-lg-6 col-md-6 col-sm-6 col-xs-12" src="img/quantification/commute-6-column.jpg" alt="quantification">
+     			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+     			<img class="col-lg-5 col-md-5 col-sm-5 col-xs-12" src="img/quantification/commute-5-column.jpg" alt="quantification">
+     		</div><!~~ CLOSE ROW ~~>
+		</div>
+
+    </div>
+    <!~~ END SLIDE ~~>
+  </div>
+</div>
+ -->
+
+<div class="container-fluid container-coffee-early big-spacing">
+	<div class="row"><!-- HEADER -->
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+			<h1>We know what we like</h1>
+        	<div class="row no-pad-col"><!-- CONTENT -->
+     			<img class="col-lg-3 col-md-3 col-sm-3 col-xs-12" src="img/quantification/coffee-early-1.jpg" alt="quantification">
+     			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+     			<img class="col-lg-4 col-md-4 col-sm-4 col-xs-12" src="img/quantification/coffee-early-2.jpg" alt="quantification">
+     			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+     			<img class="col-lg-3 col-md-3 col-sm-3 col-xs-12" src="img/quantification/coffee-early-3.jpg" alt="quantification">
+     		</div><!-- CLOSE ROW -->
+     	</div>
+     	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+     </div>
+</div>
+<!-- 
+<div id="carousel-coffee-early" class="carousel slide">
+  <!~~ Wrapper for slides ~~>
+  <div class="carousel-inner">
+	<!~~ BEGIN SLIDE ~~>
+    <div class="item active">
+		<div class="carousel-caption coffee-early">
+      		<div class="row"><!~~ HEADER ~~>
+     			<h1>We know what we like</h1>
+     		</div>
+        	<div class="row no-pad-col"><!~~ CONTENT ~~>
+     			<img class="col-lg-3 col-md-3 col-sm-3 col-xs-12" src="img/quantification/coffee-early-1.jpg" alt="quantification">
+     			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+     			<img class="col-lg-4 col-md-4 col-sm-4 col-xs-12" src="img/quantification/coffee-early-2.jpg" alt="quantification">
+     			<div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+     			<img class="col-lg-3 col-md-3 col-sm-3 col-xs-12" src="img/quantification/coffee-early-3.jpg" alt="quantification">
+     		</div><!~~ CLOSE ROW ~~>
+		</div>
+
+    </div>
+    <!~~ END SLIDE ~~>
+  </div>
+</div>
+ -->
+
+<div class="container-fluid container-music big-spacing">
+	<div class="row no-pad-col"><!-- HEADER -->
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+     		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+     			<h1 class="">We listen to fresh tunes</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/music-8-column.jpg" alt="quantification">
+     			</div>
+     			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+     			<h1 class="">Our top artists</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/music-4-column.jpg" alt="quantification">
+     			</div>
+     	</div>
+     	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>	
+	</div>
+</div>
+<!-- 
+<div id="carousel-music" class="carousel slide">
+  <!~~ Wrapper for slides ~~>
+  <div class="carousel-inner">
+	<!~~ BEGIN SLIDE ~~>
+    <div class="item active">
+		<div class="carousel-caption music">
+      		<div class="row no-pad-col"><!~~ HEADER ~~>
+     			<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+     			<h1 class="">We listen to fresh tunes</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/music-8-column.jpg" alt="quantification">
+     			</div>
+     			<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+     			<h1 class="">Our top artists</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/music-4-column.jpg" alt="quantification">
+     			</div>
+     		</div>
+		</div>
+
+    </div>
+    <!~~ END SLIDE ~~>
+  </div>
+</div>
+ -->
+
+
+<div class="container-fluid container-process big-spacing">
+	<div class="row no-pad-col"><!-- HEADER -->
+		<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+		<div class="col-lg-10 col-md-10 col-sm-10 col-xs-10">
+     			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+     			<h1 class="">We solve problems</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/process-6-column.jpg" alt="quantification">
+     			</div>
+     			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+     			<h1 class="">We use our hands</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/process-6-column2.jpg" alt="quantification">
+     			</div>
+     	</div>
+     	<div class="col-lg-1 col-md-1 col-sm-1 col-xs-1"></div>
+	</div>
+</div>
+<!-- 
+<div id="carousel-process" class="carousel slide">
+  <!~~ Wrapper for slides ~~>
+  <div class="carousel-inner">
+	<!~~ BEGIN SLIDE ~~>
+    <div class="item active">
+		<div class="carousel-caption process">
+      		<div class="row no-pad-col"><!~~ HEADER ~~>
+     			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+     			<h1 class="">We solve problems</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/process-6-column.jpg" alt="quantification">
+     			</div>
+     			<div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+     			<h1 class="">We use our hands</h1>
+     			<img class="col-lg-12 col-md-12 col-sm-12 col-xs-12" src="img/quantification/process-6-column2.jpg" alt="quantification">
+     			</div>
+     		</div>
+		</div>
+
+    </div>
+    <!~~ END SLIDE ~~>
+  </div>
+</div>
+ -->
+
+
+		
+<div class="container-fluid big-spacing">
+	<div class="row">
+		<div class="col-md-2 col-sm-2 col-xs-2"></div>
+		<div class="col-md-10 col-sm-10 col-xs-10">
+			<h1>We drank 3.1 metric tons of coffee senior year</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-1 col-sm-1 col-xs-1"></div>		
+		<div class="col-md-10 col-sm-10 col-xs-10">
+			<img class="col-md-12 col-sm-12 col-xs-12" src="img/quantification/coffee-9-column.jpg" width="100%" alt="quantification">
+		</div>
+		<div class="col-md-1 col-sm-1 col-xs-1"></div>
+	</div>
+	<div class="row bottom-spacing">
+		<div class="col-md-3 col-sm-3 col-xs-3"></div>
+		<div class="col-md-8 col-sm-8 col-xs-8">
+			<h1>We drank 3.1 metric tons of coffee,<br> all to show you our work</h1>
+		</div>
+		<div class="col-md-1 col-sm-1 col-xs-1"></div>
+	</div>
+</div>
+		<!-- 
+<div class="row"><!~~ HEADER ~~>
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<div class="row"
+     				<h1>Hello World</h1>
+     			
+     			
+        		<div class="row"><!~~ CONTENT ~~>
+     			<img class="col-lg-6 col-md-6 col-sm-6 col-xs-6" src="img/quantification/age.jpg" alt="quantification">
+     			<img class="col-lg-6 col-md-6 col-sm-6 col-xs-6" src="img/quantification/age2.jpg" alt="quantification">	
+     		</div><!~~ CLOSE ROW ~~>
+     		</div>
+     		<div class="col-md-1"></div>
+     	</div>
+ -->
+</div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js" charset="UTF-8">
+</script>
+<script src="js/bootstrap.min.311.js"></script>
+<script>
+	// SMOOTH SCROLLING
+$('a.down, a.up').click(function(){
+    $('html, body, #viewport').animate({
+        scrollTop: $( $.attr(this, 'href') ).offset().top
+    }, 1000);
+    return false;
+});
+
+	//ANIMATION OF UP BUTTON ON CLICK OF DOWN BUTTON
+$('.down').click(function(){
+	$('#buttonUp').css("opacity", "1");
+	$('#buttonUp').addClass('animated fadeInUp');
+});
+
+$('#buttonUp').click(function(){
+	$('#buttonUp').css("opacity", "0");
+	$('#buttonUp').removeClass('animated fadeInUp');
+});
+</script>
+<script>
+function resizer() {
+	//selec all images and videos inside of a slide and cycle through them
+	//review each method in jQuery API if this is not clear
+	$('img, video', '.item').each(function (i, elem) {
+		var myImg = $(elem),
+			myData = myImg.data(),
+			parentWidth = $('#viewport').width(),
+			parentHeight = $('#viewport').height(),
+			//calculate actual ratio of image's width to height
+			myRatio = myData.maxwidth / myData.maxheight,
+			myWidth = parentHeight * myRatio,
+			myHeight = myWidth/ myRatio;
+		//if calculated width is small than viewport make it equal to viewport
+		if( myWidth < parentWidth){
+			myWidth = parentWidth;
+		}
+		//calc image height based on native image ratio
+		myHeight = myWidth / myRatio;
+		myImg.width(myWidth + 'px');
+		myImg.height( myHeight + 'px');
+		//center image within slide
+		myImg.css('top', ((parentHeight - myHeight) / 2) + 'px');
+		myImg.css('left', ((parentWidth - myWidth) / 2) + 'px');
+	});
+}
+
+function init() {
+	$(window).on('resize', function () {
+		resizer();
+	});
+	resizer();
+}
+
+$(document).ready(function () {
+	init();
+});
+
+</script>
+<script>
+// OPEN NEW WINDOW FOR PORTFOLIO
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+
+// ALT WINDOW OPEN
+// Popup window code
+function newPopup(url) {
+	popupWindow = window.open(
+		 
+		 url,'popUpWindow','height=900,width=1500,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+
+
+
+function processHash(myHash){
+	if ( myHash === ''){
+		$('[href="#"]').click();
+	} else {
+	$('[href="' + myHash + '"]').click();
+	}
+}
+
+//hover of 
+$('#imgBank > a').hover(function(){
+	var studentGif = $(this).data("gif");
+	// $('#gif').find( "img:first" ).remove();
+	$('#gif').css("background-image", "url(img/student_gif/" + studentGif + ".gif)");
+	// $('#studentName').css("background-image", "url(img/student_names/" + studentGif + ".jpg)");
+	var studentName = $(this).data("name");
+	$('#student').css({opacity:1});
+	$('#student').append('<span>' + studentName + '</span>');
+  	}, 
+  	function() {
+  	$('#gif').css("background-image", "url(img/bigGif_blankWeb.jpg)");
+  	// $('#studentName').css("background-image", "url(img/sourceLogo_web3.jpg)");
+	$('#student').css({opacity:0});
+    $('#student').find( "span:last" ).remove();
+	});
+	
+	
+	
+// $('#imgBank > a').hover(function(){
+// 	var studentGif = $(this).data("gif");
+// 	$('#gif').find( "img:first" ).remove();
+// 	$('#gif').append('<img class="col-md-12 col-sm-12 col-xs-12" src="img/student_gif/' + studentGif + '.gif" alt="">');
+//   	}, 
+//   	function() {
+//    	$('#gif').find( "img:first" ).remove();
+//     $('#gif').append('<img class="col-md-12 col-sm-12 col-xs-12" src="img/bigGif_blankWeb.png" alt="">');
+// 	});	
+	
+processHash(location.hash);	
+	
+
+// $('#abby').hover(function(){
+// 	$('h3').css({opacity:1});
+// 	$('h3').append( $( "<span>Abby</span>" ) );
+//   	}, 
+//   	function() {
+// 	$('h3').css({opacity:0});
+//     $('h3').find( "span:last" ).remove();
+// 	});
+
+
+
+</script>
+</body>
+</html>
